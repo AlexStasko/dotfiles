@@ -4,7 +4,7 @@ Host *
     StrictHostKeyChecking no
 
 {% if ssh_config is defined %}
-{% for key, value in system_host.items() %}
+{% for key, value in ssh_config.items() %}
 {{ value }}
 {% endfor %}
 {% endif %}
