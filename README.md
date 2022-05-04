@@ -87,6 +87,7 @@ Below is a list of all available values. Not all are required but incorrect valu
 | nitrogen_background   | string `(see roles/nitrogen/files)` | no       |
 | nodejs_npmrc_config   | string `(see NodeJS below)`         | no       |
 | ssh_key               | dict `(see SSH Keys below)`         | no       |
+| ssh_config            | dict                                | no       |
 | system_host           | dict `(see System Hosts below)`     | no       |
 | zsh_public            | dict `(see Environment below)`      | no       |
 | zsh_private           | dict `(see Environment below)`      | no       |
