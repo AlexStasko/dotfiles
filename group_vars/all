@@ -53,3 +53,8 @@ default_roles:
   - twitch-cli
   - visual-studio-code
   - zsh
+  - dotnet
+  - 1password
+  - globalprotect
+  - teams
+  - skype
