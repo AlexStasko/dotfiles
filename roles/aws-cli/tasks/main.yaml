@@ -5,3 +5,21 @@
     state: latest
     name:
       - aws-cli-v2-bin
+
+- name: Create folder
+  file:
+    path: "~/.aws"
+    state: directory
+
+- name: Setup Creds
+  copy:
+    dest: "~/.aws/credentials"
+    content: "{{ aws_credentials }}"
+  no_log: true
+
+- name: Setup Config
+  copy:
+    dest: "~/.aws/config"
+    content: |
+      [default]
+      region = eu-west-1
