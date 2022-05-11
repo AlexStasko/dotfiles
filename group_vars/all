@@ -58,3 +58,4 @@ default_roles:
   - globalprotect
   - teams
   - skype
+  - opswat

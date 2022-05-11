@@ -1,0 +1,21 @@
+---
+- name: Create Tmp Folder
+  ansible.builtin.file:
+    path: "/tmp/opswat"
+    state: directory
+
+- name: Download Package
+  ansible.builtin.get_url:
+    url: "https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient.tar"
+    dest: "/tmp/opswat/opswatclient.tar"
+
+- name: Untar
+  ansible.builtin.unarchive:
+    src: "/tmp/opswat/opswatclient.tar"
+    dest: "/tmp/opswat"
+
+- name: Install
+  ansible.builtin.shell:
+    chdir: "/tmp/opswat/opswatclient"
+    cmd: "./setup.sh -s={{ opswat_server }} -l={{ opswat_license }} -g={{ opswat_group }}"
+  become: yes
