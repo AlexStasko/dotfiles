@@ -5,3 +5,5 @@
     state: latest
     name:
       - go-jsonnet
+  become: yes
+  become_user: aur_builder
