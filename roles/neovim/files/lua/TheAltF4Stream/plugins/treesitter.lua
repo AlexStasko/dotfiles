@@ -1,4 +1,4 @@
-local function init()
+local function setup_treesitter()
   require'nvim-treesitter.configs'.setup{
     ensure_installed = {
       'bash',
@@ -12,6 +12,8 @@ local function init()
       'jsdoc',
       'json',
       'lua',
+      'make',
+      'nix',
       'python',
       'rust',
       'svelte',
@@ -35,11 +37,13 @@ local function init()
       enable = true
     }
   }
+end
 
-  --vim.cmd[[set foldmethod=expr]]
-  --vim.cmd[[set foldexpr=nvim_treesitter#foldexpr()]]
+local function init()
+  setup_treesitter()
 end
 
 return {
-  init = init
+  init = init,
 }
+

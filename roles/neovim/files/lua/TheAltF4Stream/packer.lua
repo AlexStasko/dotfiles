@@ -79,9 +79,7 @@ local function packer_startup()
       'onsails/lspkind-nvim'
     },
     config = function ()
-      require'TheAltF4Stream.plugins.cmp'.init()
-      require'TheAltF4Stream.plugins.cmp_tabnine'.init()
-      require'TheAltF4Stream.plugins.lspkind'.init()
+      require'TheAltF4Stream.plugins.completion'.init()
     end
   }
 
@@ -89,7 +87,6 @@ local function packer_startup()
   use 'nvim-lua/popup.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    requires = 'rmagatti/session-lens',
     config = function ()
       require'TheAltF4Stream.plugins.telescope'.init()
     end
@@ -99,7 +96,7 @@ local function packer_startup()
   use {
     'folke/tokyonight.nvim',
     config = function ()
-      require'TheAltF4Stream.plugins.tokyonight'.init()
+      require'TheAltF4Stream.plugins.theme'.init()
     end
   }
 
@@ -114,15 +111,6 @@ local function packer_startup()
     },
     config = function ()
       require'TheAltF4Stream.plugins.gitsigns'.init()
-    end
-  }
-
-  -- Sessions
-  -- TODO: evaluate how often I am using this (10/19/21)
-  use {
-    'rmagatti/auto-session',
-    config = function ()
-      require'TheAltF4Stream.plugins.auto_session'.init()
     end
   }
 
@@ -161,6 +149,13 @@ local function packer_startup()
     config = function()
       require("lsp-colors").setup()
     end
+  }
+
+  use {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require'TheAltF4Stream.plugins.lsplines'.init()
+    end,
   }
 
   use {

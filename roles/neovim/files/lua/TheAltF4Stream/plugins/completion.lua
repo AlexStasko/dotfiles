@@ -1,6 +1,8 @@
-local function init()
+local function setup_completion()
   local cmp = require'cmp'
   local lspkind = require'lspkind'
+
+  lspkind.init()
 
   cmp.setup({
     snippet = {
@@ -56,8 +58,23 @@ local function init()
   })
 
   vim.o.completeopt = 'menu,menuone,noselect'
+
+  local tabnine = require('cmp_tabnine.config')
+
+  tabnine:setup({
+    max_lines = 1000;
+    max_num_results = 20;
+    sort = true;
+    run_on_every_keystroke = true;
+    snippet_placeholder = '..';
+  })
+end
+
+local function init()
+  setup_completion()
 end
 
 return {
-  init = init
+  init = init,
 }
+

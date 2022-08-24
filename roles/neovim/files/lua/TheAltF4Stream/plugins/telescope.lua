@@ -1,4 +1,4 @@
-local function init()
+local function setup_telescope()
   require'telescope'.setup{
     defaults = {
       file_ignore_patterns = {
@@ -27,11 +27,13 @@ local function init()
   map('n', '<leader>lsi', '<CMD>lua require("telescope.builtin").lsp_implementations{}<CR>', options)
   map('n', '<leader>lsl', '<CMD>lua require("telescope.builtin").lsp_code_actions{}<CR>', options)
   map('n', '<leader>lst', '<CMD>lua require("telescope.builtin").lsp_type_definitions{}<CR>', options)
+end
 
-  -- Extensions
-  map('n', '<leader>fs', '<CMD>lua require("telescope").extensions["session-lens"].search_session()<CR>', options)
+local function init()
+  setup_telescope()
 end
 
 return {
   init = init,
 }
+
