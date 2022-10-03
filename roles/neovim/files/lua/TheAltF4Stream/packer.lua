@@ -94,7 +94,8 @@ local function packer_startup()
 
   -- Themes
   use {
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function ()
       require'TheAltF4Stream.plugins.theme'.init()
     end

@@ -1,4 +1,5 @@
 local function setup_treesitter()
+  local parser_install_dir = vim.fn.stdpath('data') .. "/site";
   require'nvim-treesitter.configs'.setup{
     ensure_installed = {
       'bash',
@@ -35,8 +36,11 @@ local function setup_treesitter()
     },
     indent = {
       enable = true
-    }
+    },
+    parser_install_dir = parser_install_dir,
   }
+
+  vim.opt.runtimepath:append(parser_install_dir)
 end
 
 local function init()
@@ -46,4 +50,3 @@ end
 return {
   init = init,
 }
-
