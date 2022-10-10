@@ -4,4 +4,4 @@
     use: yay
     state: latest
     name:
-      - postman-bin
+      - postman9-bin
